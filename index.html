@@ -142,6 +142,27 @@
             font-size: .9rem;
             opacity: .7;
         }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .small-block {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .block-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+            margin-bottom: 0.5rem;
+        }
     </style>
 </head>
 
@@ -164,39 +185,33 @@
         </section>
     </div>
     <div class="container">
-        <!-- Live price -->
-        <section class="card" id="price-section">
-            <h2>Live Bitcoin Price</h2>
-            <div class="price">
-                <span id="btc-price">–</span>
-                <span class="change" id="btc-change"></span>
-            </div>
-            <small>Data source: <a href="https://public-api.braiins.com/v1/price-stats" target="_blank">Braiins
-                    Pool</a></small>
-        </section>
+
 
         <!-- Watch‑face description -->
         <section class="card">
             <h2>Watch‑Face Overview</h2>
-            <p><strong>Check the Bitcoin price without pulling out your phone. Because that’s what Bitcoiners
-                    do.</strong></p>
-
-            <h3>Features That Actually Matter</h3>
-            <ul>
-                <li>Real‑Time Price Updates – Auto‑updates every 15/30/60 min (choose the interval)</li>
-                <li>24 h change % with green ▲ or red ▼ (not financial advice)</li>
-                <li>Dynamic text sizing – ready for Bitcoin at $1 M+</li>
-                <li>Analog or Digital clock modes</li>
-                <li>5 clock‑hand colors (including iconic Bitcoin Orange <code>#F7931A</code>)</li>
-                <li>4 background patterns (Solid Black, Diagonal Dots, Hexagon Grid, Flowing Waves)</li>
-                <li>40 possible combinations</li>
-                <li>Lightweight (1.5 MB) & battery‑efficient</li>
-                <li>Works on 78+ Garmin devices – zero data collection</li>
-            </ul>
-
-            <h3>How to Install</h3>
-            <p>Open Garmin Connect → Device Settings → Watch Faces → Bitcoin Price Watch. Then customize clock style,
-                colors, background patterns, and update frequency.</p>
+            <div class="grid">
+                <div class="small-block">
+                    <img src="garmin-btc.jpeg" alt="Placeholder 1" class="block-img" />
+                    <h3>Bitcoin Price Trend 1</h3>
+                    <p>Check the Bitcoin price without pulling out your phone. Because that's what Bitcoiners do.</p>
+                </div>
+                <div class="small-block">
+                    <img src="placeholder2.png" alt="Placeholder 2" class="block-img" />
+                    <h3>Title 2</h3>
+                    <p>Short description 2.</p>
+                </div>
+                <div class="small-block">
+                    <img src="placeholder3.png" alt="Placeholder 3" class="block-img" />
+                    <h3>Title 3</h3>
+                    <p>Short description 3.</p>
+                </div>
+                <div class="small-block">
+                    <img src="placeholder4.png" alt="Placeholder 4" class="block-img" />
+                    <h3>Title 4</h3>
+                    <p>Short description 4.</p>
+                </div>
+            </div>
 
             <h3>Compatibility</h3>
             <p>Venu • Forerunner • Fenix • epix • Vivoactive • MARQ • Approach • Descent (78+ devices supported)</p>
