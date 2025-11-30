@@ -17,14 +17,21 @@
 
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #0d0d0d, #1a1a2e);
-            --primary: #f7931a;
-            /* Bitcoin orange */
-            --accent: #4ecca3;
-            --text: #e0e0e0;
-            --card-bg: rgba(255, 255, 255, 0.04);
+            --bg-gradient: linear-gradient(135deg, #f0f4ff, #e0eaff);
+            --primary: #007bff;
+            /* blue */
+            --accent: #007bff;
+            --text: #222222;
+            --card-bg: rgba(0, 0, 0, 0.04);
             --radius: 12px;
             --transition: 0.3s ease;
+        }
+
+        /* Ensure blocks have same width */
+        .personal,
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
         }
 
         body {
@@ -135,26 +142,13 @@
             font-size: .9rem;
             opacity: .7;
         }
-
-        @media (prefers-color-scheme: light) {
-            :root {
-                --bg-gradient: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-                --text: #222;
-                --card-bg: rgba(0, 0, 0, 0.04);
-            }
-
-            .donate button {
-                color: #fff;
-            }
-        }
     </style>
 </head>
 
 <body>
     <header>
-        <h1><img src="logo.png" alt="AIROWEB logo" style="height:60px; vertical-align:middle; margin-right:10px;">
-            Bitcoin Price Watch</h1>
-        <p>Real‑time BTC price on your Garmin watch face</p>
+        <h1><img src="logo.png" alt="AIROWEB logo" style="height:60px; vertical-align:middle; margin-right:10px;"></h1>
+        <p>Garmin Watch Faces</p>
     </header>
 
     <div class="personal">
@@ -206,6 +200,20 @@
 
             <h3>Compatibility</h3>
             <p>Venu • Forerunner • Fenix • epix • Vivoactive • MARQ • Approach • Descent (78+ devices supported)</p>
+        </section>
+        <section class="card">
+            <h2>Support the Dev</h2>
+            <p>If this watch face helps you stack sats, consider a donation.</p>
+            <div class="donate">
+                <div>
+                    <strong>Lightning:</strong> <code id="ln-address">expertpostage64@walletofsatoshi.com</code>
+                    <button onclick="copyToClipboard('ln-address')">Copy</button>
+                </div>
+                <div>
+                    <strong>On‑chain:</strong> <code id="btc-address">bc1qlwd6zyrfhrel7awzlwq9eu8mq4tmxk6qa8zgee</code>
+                    <button onclick="copyToClipboard('btc-address')">Copy</button>
+                </div>
+            </div>
         </section>
         <section class="card">
             <h2>Contact Me</h2>
