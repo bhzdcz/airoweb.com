@@ -1,224 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Bitcoin Price Watch – Garmin Watch Face</title>
-  <meta name="description" content="Landing page for the Bitcoin Price Watch Garmin watch face. Real‑time BTC price, features, and donation links.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Bitcoin Price Watch – Garmin Watch Face</title>
+    <meta name="description"
+        content="Landing page for the Bitcoin Price Watch Garmin watch face. Real‑time BTC price, features, and donation links.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Open Graph for nice link previews -->
-  <meta property="og:title" content="Bitcoin Price Watch – Garmin Watch Face">
-  <meta property="og:description" content="Real‑time BTC price on your Garmin watch. Donate with Lightning or on‑chain.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/your-user/your-repo/main/preview.png">
-  <meta property="og:type" content="website">
+    <!-- Open Graph for nice link previews -->
+    <meta property="og:title" content="Bitcoin Price Watch – Garmin Watch Face">
+    <meta property="og:description"
+        content="Real‑time BTC price on your Garmin watch. Donate with Lightning or on‑chain.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/your-user/your-repo/main/preview.png">
+    <meta property="og:type" content="website">
 
-  <style>
-    :root {
-      --bg-gradient: linear-gradient(135deg, #0d0d0d, #1a1a2e);
-      --primary: #f7931a;               /* Bitcoin orange */
-      --accent: #4ecca3;
-      --text: #e0e0e0;
-      --card-bg: rgba(255,255,255,0.04);
-      --radius: 12px;
-      --transition: 0.3s ease;
-    }
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0d0d0d, #1a1a2e);
+            --primary: #f7931a;
+            /* Bitcoin orange */
+            --accent: #4ecca3;
+            --text: #e0e0e0;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --radius: 12px;
+            --transition: 0.3s ease;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-gradient);
-      color: var(--text);
-      line-height: 1.6;
-    }
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text);
+            line-height: 1.6;
+        }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
 
-    header {
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      color: var(--primary);
-    }
-    header p {
-      margin-top: .5rem;
-      font-size: 1.2rem;
-      opacity: .85;
-    }
+        a:hover {
+            text-decoration: underline;
+        }
 
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 1rem;
-    }
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
 
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      backdrop-filter: blur(6px);
-      transition: var(--transition);
-    }
-    .card:hover { background: rgba(255,255,255,0.08); }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
 
-    h2 {
-      margin-top: 0;
-      color: var(--primary);
-      font-size: 1.8rem;
-    }
+        header p {
+            margin-top: .5rem;
+            font-size: 1.2rem;
+            opacity: .85;
+        }
 
-    .price {
-      font-size: 2rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-    }
-    .price .change {
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-    }
-    .price .up { color: #4caf50; }
-    .price .down { color: #e53935; }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
 
-    .donate {
-      display: flex;
-      flex-direction: column;
-      gap: .8rem;
-    }
-    .donate button {
-      background: var(--primary);
-      color: #000;
-      border: none;
-      border-radius: var(--radius);
-      padding: .5rem 1rem;
-      cursor: pointer;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-    .donate button:hover { background: #ff9f3b; }
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(6px);
+            transition: var(--transition);
+        }
 
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: .9rem;
-      opacity: .7;
-    }
+        .card:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
 
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg-gradient: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-        --text: #222;
-        --card-bg: rgba(0,0,0,0.04);
-      }
-      .donate button { color: #fff; }
-    }
-  </style>
+        h2 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .price .change {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .price .up {
+            color: #4caf50;
+        }
+
+        .price .down {
+            color: #e53935;
+        }
+
+        .donate {
+            display: flex;
+            flex-direction: column;
+            gap: .8rem;
+        }
+
+        .donate button {
+            background: var(--primary);
+            color: #000;
+            border: none;
+            border-radius: var(--radius);
+            padding: .5rem 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .donate button:hover {
+            background: #ff9f3b;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: .9rem;
+            opacity: .7;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-gradient: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+                --text: #222;
+                --card-bg: rgba(0, 0, 0, 0.04);
+            }
+
+            .donate button {
+                color: #fff;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-    <h1>Bitcoin Price Watch</h1>
-    <p>Real‑time BTC price on your Garmin watch face</p>
-  </header>
+    <header>
+        <h1><img src="logo.png" alt="AIROWEB logo" style="height:60px; vertical-align:middle; margin-right:10px;">
+            Bitcoin Price Watch</h1>
+        <p>Real‑time BTC price on your Garmin watch face</p>
+    </header>
 
-  <div class="container">
-    <!-- Live price -->
-    <section class="card" id="price-section">
-      <h2>Live Bitcoin Price</h2>
-      <div class="price">
-        <span id="btc-price">–</span>
-        <span class="change" id="btc-change"></span>
-      </div>
-      <small>Data source: <a href="https://public-api.braiins.com/v1/price-stats" target="_blank">Braiins Pool</a></small>
-    </section>
+    <div class="personal">
+        <section class="card">
+            <h2>About Me</h2>
+            <p>By day, I’m a technical analyst transforming business requirements into cool features and making tech
+                magic happen; by night (and weekends), I’m a coding wizard conjuring up fun projects and nifty scripts.
+            </p>
+            <p>My journey started in the trenches of web development before I entered the Bitcoin mining industry – an
+                era as exciting as Bitcoin mining itself.</p>
+            <p>Whether it’s turning bugs into features or making tech tools dance, this blog is my digital playground.
+                Join me as I share my escapades, tools, and all things tech – let’s make tools work for us!</p>
+        </section>
+    </div>
+    <div class="container">
+        <!-- Live price -->
+        <section class="card" id="price-section">
+            <h2>Live Bitcoin Price</h2>
+            <div class="price">
+                <span id="btc-price">–</span>
+                <span class="change" id="btc-change"></span>
+            </div>
+            <small>Data source: <a href="https://public-api.braiins.com/v1/price-stats" target="_blank">Braiins
+                    Pool</a></small>
+        </section>
 
-    <!-- Watch‑face description -->
-    <section class="card">
-      <h2>Watch‑Face Overview</h2>
-      <p><strong>Check the Bitcoin price without pulling out your phone. Because that’s what Bitcoiners do.</strong></p>
+        <!-- Watch‑face description -->
+        <section class="card">
+            <h2>Watch‑Face Overview</h2>
+            <p><strong>Check the Bitcoin price without pulling out your phone. Because that’s what Bitcoiners
+                    do.</strong></p>
 
-      <h3>Features That Actually Matter</h3>
-      <ul>
-        <li>Real‑Time Price Updates – Auto‑updates every 15/30/60 min (choose the interval)</li>
-        <li>24 h change % with green ▲ or red ▼ (not financial advice)</li>
-        <li>Dynamic text sizing – ready for Bitcoin at $1 M+</li>
-        <li>Analog or Digital clock modes</li>
-        <li>5 clock‑hand colors (including iconic Bitcoin Orange <code>#F7931A</code>)</li>
-        <li>4 background patterns (Solid Black, Diagonal Dots, Hexagon Grid, Flowing Waves)</li>
-        <li>40 possible combinations</li>
-        <li>Lightweight (1.5 MB) & battery‑efficient</li>
-        <li>Works on 78+ Garmin devices – zero data collection</li>
-      </ul>
+            <h3>Features That Actually Matter</h3>
+            <ul>
+                <li>Real‑Time Price Updates – Auto‑updates every 15/30/60 min (choose the interval)</li>
+                <li>24 h change % with green ▲ or red ▼ (not financial advice)</li>
+                <li>Dynamic text sizing – ready for Bitcoin at $1 M+</li>
+                <li>Analog or Digital clock modes</li>
+                <li>5 clock‑hand colors (including iconic Bitcoin Orange <code>#F7931A</code>)</li>
+                <li>4 background patterns (Solid Black, Diagonal Dots, Hexagon Grid, Flowing Waves)</li>
+                <li>40 possible combinations</li>
+                <li>Lightweight (1.5 MB) & battery‑efficient</li>
+                <li>Works on 78+ Garmin devices – zero data collection</li>
+            </ul>
 
-      <h3>How to Install</h3>
-      <p>Open Garmin Connect → Device Settings → Watch Faces → Bitcoin Price Watch. Then customize clock style, colors, background patterns, and update frequency.</p>
+            <h3>How to Install</h3>
+            <p>Open Garmin Connect → Device Settings → Watch Faces → Bitcoin Price Watch. Then customize clock style,
+                colors, background patterns, and update frequency.</p>
 
-      <h3>Compatibility</h3>
-      <p>Venu • Forerunner • Fenix • epix • Vivoactive • MARQ • Approach • Descent (78+ devices supported)</p>
-    </section>
+            <h3>Compatibility</h3>
+            <p>Venu • Forerunner • Fenix • epix • Vivoactive • MARQ • Approach • Descent (78+ devices supported)</p>
+        </section>
+        <section class="card">
+            <h2>Contact Me</h2>
+            <p>If you need support or want to get in touch, feel free to email me at <a
+                    href="mailto:Behzad@airoweb.com">Behzad@airoweb.com</a>.</p>
+        </section>
 
-    <!-- Donation -->
-    <section class="card">
-      <h2>Support the Dev</h2>
-      <p>If this watch face helps you stack sats, consider a donation.</p>
+    </div>
 
-      <div class="donate">
-        <div>
-          <strong>Lightning:</strong> <code id="ln-address">expertpostage64@walletofsatoshi.com</code>
-          <button onclick="copyToClipboard('ln-address')">Copy</button>
-        </div>
-        <div>
-          <strong>On‑chain:</strong> <code id="btc-address">bc1qlwd6zyrfhrel7awzlwq9eu8mq4tmxk6qa8zgee</code>
-          <button onclick="copyToClipboard('btc-address')">Copy</button>
-        </div>
-      </div>
-    </section>
-  </div>
+    <footer>
+        © 2025 <a href="https://github.com/your-user" target="_blank">Your Name</a> – All rights reserved.
+    </footer>
 
-  <footer>
-    © 2025 <a href="https://github.com/your-user" target="_blank">Your Name</a> – All rights reserved.
-  </footer>
+    <script>
+        // Simple fetch from Braiins public API
+        async function fetchPrice() {
+            try {
+                const resp = await fetch('https://public-api.braiins.com/v1/price-stats');
+                const data = await resp.json();
+                // API returns an array of price stats, we take the latest entry
+                const latest = data.price_stats[data.price_stats.length - 1];
+                const price = latest.price_usd.toFixed(2);
+                const change = latest.change_24h_percent.toFixed(2);
+                const changeEl = document.getElementById('btc-change');
+                const priceEl = document.getElementById('btc-price');
 
-  <script>
-    // Simple fetch from Braiins public API
-    async function fetchPrice() {
-      try {
-        const resp = await fetch('https://public-api.braiins.com/v1/price-stats');
-        const data = await resp.json();
-        // API returns an array of price stats, we take the latest entry
-        const latest = data.price_stats[data.price_stats.length - 1];
-        const price = latest.price_usd.toFixed(2);
-        const change = latest.change_24h_percent.toFixed(2);
-        const changeEl = document.getElementById('btc-change');
-        const priceEl = document.getElementById('btc-price');
+                priceEl.textContent = `$${price}`;
+                changeEl.textContent = `${change}%`;
+                changeEl.className = change >= 0 ? 'up' : 'down';
+                changeEl.prepend(change >= 0 ? '▲' : '▼');
+            } catch (e) {
+                console.error('Failed to fetch price', e);
+                document.getElementById('btc-price').textContent = '—';
+            }
+        }
 
-        priceEl.textContent = `$${price}`;
-        changeEl.textContent = `${change}%`;
-        changeEl.className = change >= 0 ? 'up' : 'down';
-        changeEl.prepend(change >= 0 ? '▲' : '▼');
-      } catch (e) {
-        console.error('Failed to fetch price', e);
-        document.getElementById('btc-price').textContent = '—';
-      }
-    }
+        // Refresh every 15 min (you can change the interval here)
+        fetchPrice();
+        setInterval(fetchPrice, 15 * 60 * 1000);
 
-    // Refresh every 15 min (you can change the interval here)
-    fetchPrice();
-    setInterval(fetchPrice, 15 * 60 * 1000);
-
-    // Clipboard helper
-    function copyToClipboard(id) {
-      const text = document.getElementById(id).textContent;
-      navigator.clipboard.writeText(text).then(() => {
-        alert('Copied to clipboard');
-      });
-    }
-  </script>
+        // Clipboard helper
+        function copyToClipboard(id) {
+            const text = document.getElementById(id).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard');
+            });
+        }
+    </script>
 </body>
+
 </html>
