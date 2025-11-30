@@ -163,6 +163,17 @@
             border-radius: var(--radius);
             margin-bottom: 0.5rem;
         }
+
+        .block-link {
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+        }
+
+        .block-link:hover {
+            color: #f7931a;
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -190,11 +201,14 @@
         <section class="card">
             <h2>Watch‑Face Overview</h2>
             <div class="grid">
-                <div class="small-block">
-                    <img src="garmin-btc.jpeg" alt="Placeholder 1" class="block-img" />
-                    <h3>Bitcoin Price&Trend</h3>
-                    <p>Check the Bitcoin price without pulling out your phone. Because that's what Bitcoiners do.</p>
-                </div>
+                <a href="https://apps.garmin.com/apps/431a314b-361c-44e4-b557-ed3d1a3883f5" class="block-link">
+                    <div class="small-block">
+                        <img src="garmin-btc.jpeg" alt="Placeholder 1" class="block-img" />
+                        <h3>Bitcoin Price&Trend</h3>
+                        <p>Check the Bitcoin price without pulling out your phone. Because that's what Bitcoiners do.
+                        </p>
+                    </div>
+                </a>
                 <div class="small-block">
                     <img src="garmin-btc.jpeg" alt="Placeholder 2" class="block-img" />
                     <h3>Braiins Pool Watcher</h3>
